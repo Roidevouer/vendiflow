@@ -1,0 +1,7 @@
+{
+  "name": "VendiFlow",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
+  "forwardPorts": [3000, 54323, 54324],
+  "postCreateCommand": "npm install"
+}

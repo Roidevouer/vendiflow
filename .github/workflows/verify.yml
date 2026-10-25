@@ -1,0 +1,29 @@
+name: Vérification VendiFlow
+on: [push, workflow_dispatch]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lancer toutes les vérifications
+        run: bash scripts/verify.sh || true
+      - name: Afficher le résultat
+        if: always()
+        run: |
+          {
+            echo '## Résultat'; echo '```'
+            sed -n '/===== RÉSUMÉ =====/,$p' verify-report.txt
+            echo '```'; echo '## Fin du rapport (pour diagnostiquer)'; echo '```'
+            tail -n 80 verify-report.txt; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verify-report
+          path: verify-report.txt
+      - name: Échouer si une étape est en échec
+        run: "grep -q 'RÉSUMÉ' verify-report.txt && ! grep -q '^ÉCHEC' verify-report.txt"

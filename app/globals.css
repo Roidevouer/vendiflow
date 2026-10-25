@@ -1,0 +1,7 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+@layer components {
+  .field { @apply block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-600/30; }
+  .btn { @apply inline-flex items-center justify-center rounded-md bg-brand-700 px-4 py-2 text-sm font-medium text-white hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600; }
+  .alert-error { @apply rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800; }
+  .alert-info { @apply rounded-md border border-brand-600/30 bg-brand-50 px-3 py-2 text-sm text-brand-900; }
+}
