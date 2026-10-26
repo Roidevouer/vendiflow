@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^source \"\\$HOME/\\.nvm/nvm\\.sh\" && cd /workspaces/vendiflow && npm run dev -- -H 0\\.0\\.0\\.0$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
