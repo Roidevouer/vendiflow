@@ -1,5 +1,8 @@
-.env.local
+cd /workspaces/vendiflow && printf 'node_modules\n.next\n.env.local\n' >> .gitignore && git add -A && git -c user.name=Roidevouer -c user.email=noreply@github.com commit -m "Mise a jour VendiFlow" ; git push && echo PUSH_OK ; git log --oneline -3 ; git status -sb | head -5.env.local
 node_modules
+node_modules
+.next
+.env.local
 node_modules
 .next
 .env.local
